@@ -13,4 +13,4 @@ class buscaHorario:
         # convertendo a string em um json
         jsonHorario = json.loads(jsonHorarioString)
 
-        return jsonHorario["id"], jsonHorario["nomeDoProfessor"], jsonHorario["horarioDeAtendimento"], jsonHorario["periodo"], jsonHorario["sala"], jsonHorario["predio"]
+        return jsonHorario
