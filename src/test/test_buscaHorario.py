@@ -3,8 +3,8 @@ import unittest as ut
 from unittest.mock import Mock
 from unittest.mock import MagicMock
 
-from SeminarioC214.src.main.buscaHorario import buscaHorario
-from SeminarioC214.src.test import HorariosJson
+from src.main.buscaHorario import buscaHorario
+from src.test import HorariosJson
 
 
 class testHorarioDeAtendimento(ut.TestCase):
@@ -33,3 +33,13 @@ class testHorarioDeAtendimento(ut.TestCase):
         print(iterado.__next__())
 
         self.assertEqual(result, HorariosJson.HorariosJsons.arr)
+
+    def test_busca_horario_result_is_dict(self):
+        mockHorarioService = Mock()
+        mockHorarioService.Procura.return_value = HorariosJson.HorariosJsons.Chris
+
+        bh = buscaHorario(mockHorarioService)
+
+        resultado = bh.buscaHorario(2)
+
+        self.assertIsInstance(resultado, dict)
