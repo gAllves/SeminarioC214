@@ -25,15 +25,18 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install html-testRunner xmlrunner
+        pip install html-testRunner
     - name: Run tests and generate report
       run: |
+        ls
+        mkdir -p src/test/reports
+        python src/run_tests.py
 
     - name: Upload Test Artifact
       uses: actions/upload-artifact@v4
       with:
         name: test-reports
-        path: //
+        path: ./src/test/reports/*
 
   build:
     runs-on: ubuntu-latest
