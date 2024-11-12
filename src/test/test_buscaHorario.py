@@ -43,3 +43,4 @@ class testHorarioDeAtendimento(ut.TestCase):
         resultado = bh.buscaHorario(2)
 
         self.assertIsInstance(resultado, dict)
+    
